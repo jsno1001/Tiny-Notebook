@@ -1,0 +1,23 @@
+{
+  "name": "tiny_notebook",
+  "version": "0.1.0",
+  "description": "Tiny-Notebook is a very small text notepad for Linux.",
+  "homepage": "https://github.com/jsno1001/Tiny-Notebook#readme",
+  "bugs": {
+    "url": "https://github.com/jsno1001/Tiny-Notebook/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsno1001/Tiny-Notebook.git"
+  },
+  "license": "ISC",
+  "author": "jsno1001",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^41.0.2"
+  }
+}
