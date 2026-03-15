@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/jsno1001/Tiny-Notebook.git"
   },
-  "license": "ISC",
+  "license": "GPL-3.0-only",
   "author": "jsno1001",
   "type": "commonjs",
   "main": "main.js",
