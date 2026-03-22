@@ -5,22 +5,24 @@ const fs = require("fs");
 ipcMain.handle("ReadFile", (event, filename, encoding="utf-8") => {
     try{
         const content = fs.readFileSync(filename, encoding);
-        console.log("File "+"filename"+" has read");
+        console.log("File "+filename+" has read");
         return content;
     }
     catch(error) {
         console.log("Error in reading file "+filename+" | "+error);
+        return;
     }
 })
 
 ipcMain.handle("WriteFile", (event, filename, data, encoding="utf-8") => {
     try{
         const content = fs.writeFileSync(filename, data, encoding);
-        console.log("File "+"filename"+" has write");
+        console.log("File "+filename+" has write");
         return content;
     }
     catch(error) {
         console.log("Error in writting file "+filename+" | "+error);
+        return;
     }
 })
 
