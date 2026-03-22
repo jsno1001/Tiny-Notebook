@@ -13,6 +13,18 @@ ipcMain.handle("ReadFile", (event, filename, encoding="utf-8") => {
     }
 })
 
+ipcMain.handle("WriteFile", (event, filename, data, encoding="utf-8") => {
+    try{
+        const content = fs.writeFileSync(filename, data, encoding);
+        console.log("File "+"filename"+" has write");
+        return content;
+    }
+    catch(error) {
+        console.log("Error in writting file "+filename+" | "+error);
+    }
+})
+
+
 const CreateWindow = () => {
     const win = new BrowserWindow({
         height:500,
