@@ -1,6 +1,7 @@
-const { contextBridge, ipcRenderer } = require("electron");
+const { contextBridge, ipcRenderer} = require("electron");
 
-contextBridge.exposeInMainWorld('electronAPI', {
-    // saceSettings: (settings) => ipcRenderer.send('save-settings', settings),
-    // loadSettings: () => ipcRenderer.invoke('load-settings'),
+contextBridge.exposeInMainWorld('API', {
+    ReadFile: (filename) =>
+        ipcRenderer.invoke("ReadFile", filename),
+
 });

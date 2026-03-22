@@ -1,5 +1,17 @@
-const {app, BrowserWindow} = require("electron")
-const path = require("path")
+const {app, BrowserWindow, ipcMain} = require("electron");
+const path = require("path");
+const fs = require("fs");
+
+ipcMain.handle("ReadFile", (event, filename, encoding="utf-8") => {
+    try{
+        const content = fs.readFileSync(filename, encoding);
+        console.log("File "+"filename"+" has read");
+        return content;
+    }
+    catch(error) {
+        console.log("Error in reading file "+filename+" | "+error);
+    }
+})
 
 const CreateWindow = () => {
     const win = new BrowserWindow({
@@ -13,13 +25,14 @@ const CreateWindow = () => {
     });
 
     win.loadFile(path.join(__dirname, "gui", "index.html"));
+    win.webContents.openDevTools();
 }
+
 
 app.whenReady().then(() => {
     CreateWindow();
-})
+});
 
 app.on('window-all-closed', () => {
     app.quit();
-})
-
+});
