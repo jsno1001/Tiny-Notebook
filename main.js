@@ -27,25 +27,18 @@ ipcMain.handle("WriteFile", (event, filename, data, encoding="utf-8") => {
 });
 
 ipcMain.handle("FindFile", () => {
-    try {
-        let filepath;
-        dialog.showOpenDialog({
+    let filepath = dialog.showOpenDialog({
         title: 'Choise file',
         properties: ['openFile'],
         filters: [
             { name: 'txt files', extensions: ['txt'] },
+            { name: 'md files', extensions: ['md'] },
             { name: 'all files', extensions: ['*'] }
         ]
-        }).then((path) => {
-            filepath=path;
-            console.log(filepath)
-        });
-        return filepath;
-    }
-    catch(error) {
-        console.log("Failed FindFile | "+error);
-        return;
-    }
+    }).then((result) => {
+        return result.filePaths[0];
+    });
+    return filepath;
 });
 
 const CreateWindow = () => {

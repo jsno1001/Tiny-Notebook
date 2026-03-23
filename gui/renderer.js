@@ -6,9 +6,8 @@ window.API.ipcRenderer_on("menu-file/save", () => {
 });
 window.API.ipcRenderer_on("menu-file/open", () => {  
     window.API.FindFile()
-    .then((fileanmeX) => {
-        console.log(fileanmeX["filepaths"]);
-        console.log(fileanmeX);
+    .then(result => {
+        filename = result;
         window.API.ReadFile(filename)
         .then( (fcontent) => {
             text.value=fcontent;    
