@@ -1,4 +1,17 @@
-window.API.WriteFile("./tests/file2.txt", "Hello writting");
-window.API.ReadFile("./tests/file2.txt").then(response => {
-    document.body.innerHTML += "<h1>"+response+"</h1>";
-})
+let filename;
+let text = document.getElementById("text");
+
+window.API.ipcRenderer_on("menu-file/save", () => {    
+    window.API.WriteFile(filename, text.value); 
+});
+window.API.ipcRenderer_on("menu-file/open", () => {  
+    window.API.FindFile()
+    .then((fileanmeX) => {
+        console.log(fileanmeX["filepaths"]);
+        console.log(fileanmeX);
+        window.API.ReadFile(filename)
+        .then( (fcontent) => {
+            text.value=fcontent;    
+        });
+    });
+});
