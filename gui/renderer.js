@@ -15,5 +15,3 @@ window.API.ipcRenderer_on("menu-file/open", () => {
         });
     });
 });
-
-console.log(window.API.argv);
