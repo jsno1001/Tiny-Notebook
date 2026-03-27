@@ -3,24 +3,31 @@
 
 ## Dowload project
 ``` bash
-user@pc ~> git clone https://github.com/jsno1001/Tiny-Notebook.git
-user@pc ~> cd Tiny-Notebook
-user@pc ~> npm install
+git clone https://github.com/jsno1001/Tiny-Notebook.git
+cd Tiny-Notebook
+npm install
 ```
 
 ## Start project
 ``` bash
-user@pc ~> npm start
+npm start
 ```
 
-## Project structure
+## Project info
+### Files
 ```
-| Tiny-Notebook
-|---| gui/
-|---|--- assets/
-|---|--- index.html
-|---|--- renderer.js
-|---| main.js
-|---| package.json
-|---| preload.js
+    ├── gui
+    │   ├── assets
+    │   ├── index.html
+    │   └── renderer.js
+    ├── LICENSE
+    ├── build
+    ├── main.js
+    ├── package.json
+    ├── preload.js
+    └── README.md
 ```
+
+### Dependenses
+- electron
+- nodejs
