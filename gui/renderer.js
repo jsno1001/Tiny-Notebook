@@ -15,3 +15,9 @@ window.API.ipcRenderer_on("menu-file/open", () => {
         });
     });
 });
+window.API.ipcRenderer_on("menu-file/update", () => {  
+    window.API.ReadFile(filename)
+    .then( (fcontent) => {
+        text.value=fcontent;
+    });
+});

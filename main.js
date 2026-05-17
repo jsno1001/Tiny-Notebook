@@ -66,6 +66,11 @@ const CreateWindow = () => {
                     label: "Save",
                     accelerator: "Ctrl+S",
                     click: () => win.webContents.send('menu-file/save')
+                },
+                {
+                    label: "Update",
+                    accelerator: "F5",
+                    click: () => win.webContents.send("menu-file/update")
                 }
             ]
         }
